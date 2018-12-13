@@ -1,1 +1,10 @@
 
+{
+  "environments": {
+    "test": {
+      "addons":[
+        "heroku-redis:in-dyno"
+      ]
+    }
+  }
+}
