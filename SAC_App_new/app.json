@@ -1,10 +1,9 @@
-
 {
   "environments": {
     "test": {
-      "addons":[
-        "heroku-redis:in-dyno"
-      ]
+      "scripts": {
+        "test": "nose test"
+      }
     }
   }
 }
