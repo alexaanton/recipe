@@ -7,20 +7,67 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style> body {
+            background-color: #FFFFFF;
+        }
+    .recipe-container h3 a {
+        color: #000000;
+    }
+    .recipe-details {
+        border: 1px solid #000000;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        padding-left: 10px;
+        color: #000000;
+    }
+    .label-primary {
+        background-color: #000000;
+        padding: 10px 10px;
+
+    }
+    .labels {
+        margin-bottom: 10px;
+    }
+    .jumbotron {
+
+          /* The image used */
+          background-image: url("https://usateatsiptrip.files.wordpress.com/2018/03/gettyimages-887636042.jpg?w=1000&h=600&crop=1");
+
+          /* Full height */
+          height: 300px;
+
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+    .jumbotron h1 {
+        margin-top: 180px;
+        color: #ffffff;
+    }</style>
 </head>
 <body>
 
-<div class="jumbotron text-center">
+<!--div class="jumbotron text-center">
   <h1>Find Recipe</h1>
   <p>Intelligent recipes based on fridge products</p>
-</div>
+</-->
 <!-- {{ key.id }}/ -->
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <h1><span class="header-text">It's time to get to work!</span></h1><br>
+        </div>
+    </div>
+</div>
 <div class="container">
   <div class="row">
       {% for key in title %}
-          <div class="col-sm-12">
+          <div class="col-sm-12 recipe-container">
             <h3><b><a href="/receipes/{{ key.id }}/"> {{ key.title }}</a></b></h3>
-                    {% if key.cooktime %}
+          <div class="labels">
+          {% if key.cooktime %}
                         {% for key1 in key.cooktime %}
                             <span class="label label-primary">CookTime: </b>   {{ key1 }}</span>
                          {% endfor %}
@@ -28,38 +75,37 @@
 
                     {% if key.preptime %}
                         {% for key2 in key.preptime %}
-                                 <span class="label label-info">PrepTime: {{ key2 }}</span>
+                                 <span class="label label-primary">PrepTime: {{ key2 }}</span>
                         {% endfor %}
                     {% endif %}
 
 
                     {% if key.servings %}
                         {% for key3 in key.servings %}
-                             <span class="label label-warning">Servings:  {{ key3 }}</span>
+                             <span class="label label-primary">Servings:  {{ key3 }}</span>
                         {% endfor %}
                     {% endif %}
-                    <div class="panel panel-info">
-                        <div class="panel-body">
+          </div>
+                    <div class="recipe-details">
                             <h4><b>Ingredients:</b></h4>
-                                {% if key.ingredient %}
+                            <ul>
+                                 {% if key.ingredient %}
                                     {% for key4 in key.ingredient %}
-                                    <p>{{ key4 }}</p>
+                                   <li>{{ key4 }}</li>
 
 
                                      {% endfor %}
                                 {% endif %}
-                        </div>
+                            </ul>
                     </div>
                     <br/>
-                    <div class="panel panel-primary">
-                        <div class="panel-body">
+                    <div class="recipe-details">
                             <h4><b>Directions:</b></h4>
                                 {% if key.direction %}
                                     {% for key5 in key.direction %}
                                     <p>{{ key5 }}</p>
                                      {% endfor %}
                                 {% endif %}
-                        </div>
                     </div>
               {% endfor %}
           </div>
