@@ -7,37 +7,116 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #FECB8A;
+        }
+        .jumbotron {
+
+          /* The image used */
+          background-image: url("http://www.colonelsretreat.com/system/special_slider/cooking.png");
+
+          /* Full height */
+          height: 700px;
+
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        .jumbotron h2 {
+             margin-top: 450px;
+             color: brown;
+            text-align: center;
+        }
+
+
+        .recipe-container {
+            height: 200px;
+            border: 2px solid brown;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            width: 95%;
+            margin-bottom: 10px;
+        }
+        .recipe-container a {
+            text-decoration: none;
+            color: brown;
+        }
+
+        .glyphicon-menu-down {
+            font-size: 30px;
+            color: brown;
+        }
+        .description-element {
+            background-color: brown;
+            width: 70%;
+            color: #000000;
+            font-weight: bold;
+            height: 30px;
+            border: 1px solid brown;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+        .recipe-container ul li {
+            list-style-type: square;
+            color: brown;
+            font-weight: bold;
+        }
+        .recipe-container h3 {
+            margin-left: 5px;
+        }
+
+
+    </style>
 </head>
 <body>
 
 <div class="jumbotron text-center">
-  <h1>Find Recipe</h1>
-  <p>Intelligent recipes based on fridge products</p>
+    <div class="container">
+  <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+          <h2><span class="header-text">The best recipes are waiting. All you have to do is scroll!</span></h2><br>
+          <span class="glyphicon-menu-down glyphicon"></span>
+      </div>
+
+      <div class="col-sm-2"></div>
 </div>
-<!-- {{ key.id }}/ -->
+  </div>
+</div>
 <div class="container">
   <div class="row">
       {% for key in title %}
           <div class="col-sm-4">
-            <h3><b><a href="/receipes/{{ key.id }}/"> {{ key.title }}</a></b></h3>
-                    {% if key.cooktime %}
+            <div class="recipe-container">
+                 <h3><b><a href="/receipes/{{ key.id }}/" class=recipe-container-title"> {{ key.title }}</a></b></h3>
+            <ul>
+                 {% if key.cooktime %}
                         {% for key1 in key.cooktime %}
-                            <span class="label label-primary">CookTime: </b>   {{ key1 }}</span>
+
+                            <li>CookTime: {{ key1 }}</li>
                          {% endfor %}
                     {% endif %}
 
                     {% if key.preptime %}
                         {% for key2 in key.preptime %}
-                                 <span class="label label-info">PrepTime: {{ key2 }}</span>
+                                 <li>PrepTime: {{ key2 }}</li>
                         {% endfor %}
                     {% endif %}
 
 
                     {% if key.servings %}
                         {% for key3 in key.servings %}
-                             <span class="label label-warning">Servings:  {{ key3 }}</span>
+                             <li>Servings:  {{ key3 }}</li>
                         {% endfor %}
                     {% endif %}
+            </ul>
+
+            </div>
+
 
             </div>
       {% endfor %}
