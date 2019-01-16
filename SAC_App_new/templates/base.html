@@ -1,128 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            background-color: #FECB8A;
-        }
-        .jumbotron {
-
-          /* The image used */
-          background-image: url("http://www.colonelsretreat.com/system/special_slider/cooking.png");
-
-          /* Full height */
-          height: 700px;
-
-          /* Center and scale the image nicely */
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-        .jumbotron h2 {
-             margin-top: 450px;
-             color: brown;
-            text-align: center;
-        }
+    <title>Retete Inteligente</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/receipes/bootstrap-tagsinput.css"/>
+    <link rel="stylesheet" href="/static/receipes/style.css">
 
 
-        .recipe-container {
-            height: 200px;
-            border: 2px solid brown;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            border-radius: 4px;
-            width: 95%;
-            margin-bottom: 10px;
-        }
-        .recipe-container a {
-            text-decoration: none;
-            color: brown;
-        }
-
-        .glyphicon-menu-down {
-            font-size: 30px;
-            color: brown;
-        }
-        .description-element {
-            background-color: brown;
-            width: 70%;
-            color: #000000;
-            font-weight: bold;
-            height: 30px;
-            border: 1px solid brown;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            border-radius: 4px;
-        }
-        .recipe-container ul li {
-            list-style-type: square;
-            color: brown;
-            font-weight: bold;
-        }
-        .recipe-container h3 {
-            margin-left: 5px;
-        }
-
-
-    </style>
 </head>
 <body>
 
 <div class="jumbotron text-center">
     <div class="container">
-  <div class="row">
-      <div class="col-sm-2"></div>
-      <div class="col-sm-8">
-          <h2><span class="header-text">The best recipes are waiting. All you have to do is scroll!</span></h2><br>
-          <span class="glyphicon-menu-down glyphicon"></span>
-      </div>
-
-      <div class="col-sm-2"></div>
-</div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-      {% for key in title %}
-          <div class="col-sm-4">
-            <div class="recipe-container">
-                 <h3><b><a href="/receipes/{{ key.id }}/" class=recipe-container-title"> {{ key.title }}</a></b></h3>
-            <ul>
-                 {% if key.cooktime %}
-                        {% for key1 in key.cooktime %}
-
-                            <li>CookTime: {{ key1 }}</li>
-                         {% endfor %}
-                    {% endif %}
-
-                    {% if key.preptime %}
-                        {% for key2 in key.preptime %}
-                                 <li>PrepTime: {{ key2 }}</li>
-                        {% endfor %}
-                    {% endif %}
-
-
-                    {% if key.servings %}
-                        {% for key3 in key.servings %}
-                             <li>Servings:  {{ key3 }}</li>
-                        {% endfor %}
-                    {% endif %}
-            </ul>
-
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h2><span class="header-text">The best recipes are waiting. All you have to do is scroll!</span></h2>
+                <br>
+                <span class="glyphicon-menu-down glyphicon"></span>
             </div>
 
-
-            </div>
-      {% endfor %}
-  </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
 </div>
 
+<div class="container container-recipes">
+    <div class="search-wrapper">
+        <label>Add Ingredients: </label>
+        <input type="text" id="smart-search" data-role="tagsinput">
+    </div>
+    <div class="row">
+        <div class="recipe-template hidden">
+            <div class="col-sm-4">
+                <div class="recipe-container">
+                    <h3><b><a target="_blank" class="recipe-container-title"> </a></b></h3>
+                    <ul class="recipe-details">
+                        <li class="cooktime"></li>
+                        <li class="preptime"></li>
+                        <li class="servings"></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="results-wrapper"></div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="/static/receipes/bootstrap-tagsinput.min.js"></script>
+<script src="/static/receipes/typeahead.bundle.js"></script>
+<script src="/static/receipes/main.js"></script>
 </body>
 </html>
 
