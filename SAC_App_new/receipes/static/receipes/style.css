@@ -1,3 +1,139 @@
+    /* CSS for typeahead */
+.twitter-typeahead .tt-query,
+.twitter-typeahead .tt-hint {
+    margin-bottom: 0;
+}
+
+.twitter-typeahead .tt-hint
+{
+    display: none;
+}
+
+.tt-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+    cursor: pointer;
+}
+
+.tt-suggestion {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+    color: #333333;
+    white-space: nowrap;
+}
+
+.tt-suggestion:hover,
+.tt-suggestion:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #428bca;
+}
+
+
+
 li a {
     color: green;
 }
+ body {
+            background-color: #FECB8A;
+        }
+        .container-recipes{
+            min-height: 80vh;
+        }
+        .jumbotron {
+
+            /* The image used */
+            background-image: url("http://www.colonelsretreat.com/system/special_slider/cooking.png");
+
+            /* Full height */
+            height: 700px;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .jumbotron h2 {
+            margin-top: 450px;
+            color: brown;
+            text-align: center;
+        }
+
+
+        .recipe-container {
+            height: 200px;
+            border: 2px solid brown;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            width: 95%;
+            margin-bottom: 10px;
+        }
+
+        .recipe-container a {
+            text-decoration: none;
+            color: brown;
+        }
+
+        .glyphicon-menu-down {
+            font-size: 30px;
+            color: brown;
+        }
+
+        .description-element {
+            background-color: brown;
+            width: 70%;
+            color: #000000;
+            font-weight: bold;
+            height: 30px;
+            border: 1px solid brown;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        .recipe-container ul li {
+            list-style-type: square;
+            color: brown;
+            font-weight: bold;
+        }
+
+        .recipe-container h3 {
+            margin-left: 5px;
+        }
+
+        .search-wrapper {
+            text-align: center;
+            margin: 0 auto 25px auto;
+        }
+
+            .search-wrapper .bootstrap-tagsinput {
+                text-align: left;
+                background-color: transparent;
+                border: none;
+                width: 70vw;
+                border-bottom: 2px solid brown;
+                display: inline-block;
+
+            }
